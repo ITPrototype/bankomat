@@ -85,6 +85,7 @@ void naqd_pul()
   else
   {
     value -= naqd;
+    cout << naqd << " summa yechildi!\n";
     sorash();
   }
 }
@@ -97,14 +98,13 @@ void hisob_toldirish()
   cout << "Summani kiriting >>";
   cin >> t_sum;
   value += t_sum;
-  system("clear");
   cout << "Hisobingiz " << t_sum << " ga to'ldirildi!\n";
   sorash();
 }
 void pul_otkazma()
 {
   long int karta;
-  int k_sum, len = 1;
+  int k_sum, len;
   system("clear");
   cout << "******************PUL O'TKAZMA**********************\n";
   cout << "\n\n";
@@ -114,11 +114,22 @@ void pul_otkazma()
   {
     karta = karta / 10;
   }
-  if (len < 15)
+  if (len == 16)
   {
     cout << "O'tkaziladigan summa >>";
     cin >> k_sum;
-    sorash();
+    if (k_sum > value)
+    {
+      cout << "Hisobingizda yetarli mablag' mavjud emas!";
+      sorash();
+    }
+    else
+    {
+      value -= k_sum;
+      system("clear");
+      cout << "Tranzaksiya muvaffaqiyatli bajarildi!\n";
+      sorash();
+    }
   }
   else
   {
